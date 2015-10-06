@@ -1,0 +1,13 @@
+suma=0;
+maximo=15;
+
+Para numero desde 0 hasta maximo{
+  Si suma>=500 entonces{
+    Mostrar(suma);
+    Finalizar();
+  }
+  Sumar(suma,numero);
+}
+
+Mostrar(suma,maximo);
+Finalizar();
