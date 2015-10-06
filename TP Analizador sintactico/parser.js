@@ -86,13 +86,17 @@ function separar(w){
 	return w.replace(/</g,"").split(">");
 };
 
-function match(simbolo){
+function match(simbolo,posW){
 	if(t==simbolo){
+		console.log("Match exitoso "+ simbolo + " coincide con "+ t);
 		pos++;
 		t = w[pos];
+
 	}
-	else 
+	else{ 
 		error = true;
+		console.log("Error en match "+ simbolo + " no coincide con "+ t);
+	}
 }
 
 
@@ -103,37 +107,44 @@ function cuerposProduccion(parteIzquierda){
 	}
 }
 
-function nt(parteIzquierda){
+function PNi(parteIzquierda,posW){
 	var j;
 	var cuerpos = cuerposProduccion(parteIzquierda);
 	//console.log(parteIzquierda,cuerpos);
 	for(j=0;j<cuerpos.length;j++){
 		error = false;
-		procesar(cuerpos[j]);
+		console.log("Procesar " + parteIzquierda + " -> " + cuerpos[j].join(" "));
+		posW=procesar(cuerpos[j],posW);
+		if(!error) break;	
+	} 
+}
+
+function procesar(cuerpo,posW){
+	var i, simbolo;
+	var posWOriginal=posW;
+	for(i=0;i<cuerpo.length;i++){
+		simbolo = cuerpo[i];
+		//console.log(simbolo);
+
+		if(esNoTerminal(simbolo)) PNi(simbolo,posW);
+		else{
+			if(w[posW]==simbolo) posW++;
+			else error=true;
+		}
+
 		if(error) break;
 	}
+	if(error) return posWOriginal;
+	else return posW;
 }
 
-function procesar(cuerpo){
-	var i, simbolo;
-	for(i=0;i<cuerpo.length;i++){
-		cont++;
-		simbolo = cuerpo[i];
-		console.log(simbolo,esNoTerminal(simbolo),t,error,i);
-		if(cont==50) throw new Error("Something went badly wrong!");
-		if(esNoTerminal(simbolo)) nt(simbolo);
-		else match(simbolo); 
-	}
-}
 
-cont=0;
 
-w = separar("<NombreVariable><=><ConstEntera><;>$");
+w = separar("<NombreFuncion><(><NombreVariable><,><NombreVariable><)><;>$");
 error = false;
-pos = 0;
-t = w[pos];
+t = w[0];
 
-nt("P");
+PNi("P",0);
 if (error==false && t=="$"){
 	console.log("Cadena aceptada");
 }
