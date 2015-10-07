@@ -87,10 +87,10 @@ function separar(w){
 };
 
 function match(simbolo,posW){
-	if(t==simbolo){
-		console.log("Match exitoso "+ simbolo + " coincide con "+ t);
+	if(w[posW]==simbolo){
+		console.log("Match exitoso "+ simbolo + " coincide con "+ w[posW]);
 		pos++;
-		t = w[pos];
+		t = w[posW];
 
 	}
 	else{ 
@@ -115,7 +115,10 @@ function PNi(parteIzquierda,posW){
 		error = false;
 		console.log("Procesar " + parteIzquierda + " -> " + cuerpos[j].join(" "));
 		posW=procesar(cuerpos[j],posW);
-		if(!error) break;	
+		if(!error){
+			console.log("Devuelvo de PNi",posW,w[posW],"Produccion"+ parteIzquierda + " -> " + cuerpos[j].join(" "));
+			return posW;	
+		}
 	} 
 }
 
@@ -126,16 +129,25 @@ function procesar(cuerpo,posW){
 		simbolo = cuerpo[i];
 		//console.log(simbolo);
 
-		if(esNoTerminal(simbolo)) PNi(simbolo,posW);
+		if(esNoTerminal(simbolo)) posW=PNi(simbolo,posW);
 		else{
-			if(w[posW]==simbolo) posW++;
+			if(w[posW]==simbolo){
+				console.log("Terminal "+ w[posW] + " aceptado");
+				posW++;
+			}
 			else error=true;
 		}
 
 		if(error) break;
 	}
-	if(error) return posWOriginal;
-	else return posW;
+	if(error){
+		console.log("Error, Devuelvo de procesar",posWOriginal,w[posWOriginal]);
+		return posWOriginal;
+	} 
+	else{
+		console.log("OK, Devuelvo de procesar",posW,w[posW]);
+		return posW;
+	} 
 }
 
 
@@ -144,8 +156,9 @@ w = separar("<NombreFuncion><(><NombreVariable><,><NombreVariable><)><;>$");
 error = false;
 t = w[0];
 
-PNi("P",0);
-if (error==false && t=="$"){
+
+var posW = PNi("P",0);
+if (error==false && w[posW]=="$"){
 	console.log("Cadena aceptada");
 }
 else {
