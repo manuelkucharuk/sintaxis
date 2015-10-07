@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TP SSL</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="page-header">
+				<h1>Sintaxis y Semántica de los Lenguajes <small>Analizador Lexico y Sintáctico</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Entrada
+							</h3>
+						</div>
+						<div class="panel-body">
+							<textarea class="form-control" rows="20" id="entrada">
+entero a;
+entero b;
+entero s = a + b;
+
+entero Multiplicar(s) {
+   return s * 2;
+} 
+
+Si ( s >= 5 ) entonces {
+   s = multiplicar(s);
+}
+
+logica x = FALSO;
+
+Si (VERDADERO == x) Y (FALSO == FALSO) {
+   logica = FALSO;
+}
+
+entero suma;
+
+Para s desde 0 hasta 10 {
+   suma = suma + s;
+}
+							</textarea>
+							<button class="btn btn-primary" id="analizar">Analizar</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Salida con formato
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="highlight">
+								<pre>
+									<code id="salidaConFormato" class="language-html" data-lang="html"></code>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-xs-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Salida sin formato
+							</h3>
+						</div>
+						<div class="panel-body">
+							<textarea class="form-control" rows="20" id="salidaSinFormato"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/lexico.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

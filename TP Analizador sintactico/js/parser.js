@@ -11,7 +11,9 @@ var producciones = [
 			["CPara","LC"],
 			["CSiEntonces","LC"],
 			["CLLamadoFuncion","LC"],
-			[""]
+			["CAsignacion"],
+			["CPara"],
+			["CLLamadoFuncion"]
 		],
 	],
 
@@ -23,7 +25,7 @@ var producciones = [
 
 	["CPara",
 		[
-			["NombreVariable","desde","ExpEntera","hasta","ExpEntera","{","LC","}"]
+			["Para","NombreVariable","desde","ExpEntera","hasta","ExpEntera","{","LC","}"]
 		]
 	],
 
@@ -113,10 +115,11 @@ function PNi(parteIzquierda,posW){
 	//console.log(parteIzquierda,cuerpos);
 	for(j=0;j<cuerpos.length;j++){
 		error = false;
-		console.log("Procesar " + parteIzquierda + " -> " + cuerpos[j].join(" "));
+		//console.log("Procesar " + parteIzquierda + " -> " + cuerpos[j].join(" "));
 		posW=procesar(cuerpos[j],posW);
+		console.log("Error en PNi:",error);
 		if(!error){
-			console.log("Devuelvo de PNi",posW,w[posW],"Produccion"+ parteIzquierda + " -> " + cuerpos[j].join(" "));
+			console.log("Estoy en PNi", parteIzquierda + " -> " + cuerpos[j].join(" "), "devuelvo: ",posW,w[posW]);
 			return posW;	
 		}
 	} 
@@ -129,7 +132,10 @@ function procesar(cuerpo,posW){
 		simbolo = cuerpo[i];
 		//console.log(simbolo);
 
-		if(esNoTerminal(simbolo)) posW=PNi(simbolo,posW);
+		if(esNoTerminal(simbolo)){
+			console.log("Estoy en procesar",cuerpo,posW,"Llamo a PNi",simbolo,posW);
+			posW=PNi(simbolo,posW);
+		}
 		else{
 			if(w[posW]==simbolo){
 				console.log("Terminal "+ w[posW] + " aceptado");
@@ -141,18 +147,19 @@ function procesar(cuerpo,posW){
 		if(error) break;
 	}
 	if(error){
-		console.log("Error, Devuelvo de procesar",posWOriginal,w[posWOriginal]);
+		console.log("Estoy en procesar",cuerpo,posW,"Error, Devuelvo:",posWOriginal,w[posWOriginal]);
 		return posWOriginal;
 	} 
 	else{
-		console.log("OK, Devuelvo de procesar",posW,w[posW]);
+		console.log("Estoy en procesar",cuerpo,posW,"OK, Devuelvo:",posW,w[posW]);
 		return posW;
 	} 
 }
 
 
 
-w = separar("<NombreFuncion><(><NombreVariable><,><NombreVariable><)><;>$");
+//OK w = separar("<NombreFuncion><(><NombreVariable><,><NombreVariable><)><;><NombreVariable><=><ConstEntera><;>$");
+w=separar("<NombreFuncion><(><NombreVariable><;><NombreVariable><)><;><NombreVariable><=><ConstEntera><;>$");
 error = false;
 t = w[0];
 
