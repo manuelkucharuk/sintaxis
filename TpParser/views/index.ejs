@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TP SSL</title>
+		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<style type="text/css">
+		textarea{
+			resize: none;
+			font-family: monospace;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="page-header">
+				<h1>Sintaxis y Semántica de los Lenguajes <small>Analizador Lexico y Sintáctico</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Entrada
+							</h3>
+						</div>
+						<div class="panel-body">
+							<form action="/" method="POST">
+<textarea class="form-control" rows="20" id="entrada" name="entrada"><%=entrada%></textarea>
+								<input type="submit" class="btn btn-primary" value="Analizar" id="analizar">
+							</form>	
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								Salida
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="highlight">
+<textarea class="form-control" rows="20" id="salida" name="salida"><%=salida%></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

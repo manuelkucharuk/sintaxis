@@ -1,0 +1,67 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Users\\mkucharuk\\Desktop\\ExEscritorio\\Portables\\node\\node.exe',
+1 verbose cli   'C:\\Users\\mkucharuk\\Desktop\\ExEscritorio\\Portables\\node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'nodeamon' ]
+2 info using npm@1.4.9
+3 info using node@v4.0.0
+4 verbose cache add [ 'nodeamon', null ]
+5 verbose cache add name=undefined spec="nodeamon" args=["nodeamon",null]
+6 verbose parsed url Url {
+6 verbose parsed url   protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'nodeamon',
+6 verbose parsed url   path: 'nodeamon',
+6 verbose parsed url   href: 'nodeamon' }
+7 silly lockFile ef28aa95-nodeamon nodeamon
+8 verbose lock nodeamon C:\Users\mkucharuk\AppData\Roaming\npm-cache\ef28aa95-nodeamon.lock
+9 silly lockFile ef28aa95-nodeamon nodeamon
+10 silly lockFile ef28aa95-nodeamon nodeamon
+11 verbose addNamed [ 'nodeamon', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 06d30f9d-nodeamon nodeamon@
+14 verbose lock nodeamon@ C:\Users\mkucharuk\AppData\Roaming\npm-cache\06d30f9d-nodeamon.lock
+15 silly addNameRange { name: 'nodeamon', range: '*', hasData: false }
+16 verbose url raw nodeamon
+17 verbose url resolving [ 'http://registry.npmjs.org/', './nodeamon' ]
+18 verbose url resolved http://registry.npmjs.org/nodeamon
+19 info trying registry request attempt 1 at 12:22:18
+20 http GET http://registry.npmjs.org/nodeamon
+21 http 404 http://registry.npmjs.org/nodeamon
+22 silly registry.get cb [ 404,
+22 silly registry.get   { 'content-type': 'application/json',
+22 silly registry.get     'cache-control': 'max-age=0',
+22 silly registry.get     'content-length': '2',
+22 silly registry.get     'accept-ranges': 'bytes',
+22 silly registry.get     date: 'Fri, 09 Oct 2015 15:22:18 GMT',
+22 silly registry.get     via: '1.1 varnish',
+22 silly registry.get     'x-served-by': 'cache-iad2124-IAD',
+22 silly registry.get     'x-cache': 'MISS',
+22 silly registry.get     'x-cache-hits': '0',
+22 silly registry.get     'x-timer': 'S1444404138.515763,VS0,VE17',
+22 silly registry.get     connection: 'close',
+22 silly registry.get     age: '0' } ]
+23 silly lockFile 06d30f9d-nodeamon nodeamon@
+24 silly lockFile 06d30f9d-nodeamon nodeamon@
+25 error 404 Not Found
+25 error 404
+25 error 404 'nodeamon' is not in the npm registry.
+25 error 404 You should bug the author to publish it
+25 error 404
+25 error 404 Note that you can also install from a
+25 error 404 tarball, folder, or http url, or git url.
+26 error System Windows_NT 6.1.7601
+27 error command "C:\\Users\\mkucharuk\\Desktop\\ExEscritorio\\Portables\\node\\node.exe" "C:\\Users\\mkucharuk\\Desktop\\ExEscritorio\\Portables\\node\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "nodeamon"
+28 error cwd C:\Users\mkucharuk\Documents\Facu\TpParser
+29 error node -v v4.0.0
+30 error npm -v 1.4.9
+31 error code E404
+32 verbose exit [ 1, true ]
