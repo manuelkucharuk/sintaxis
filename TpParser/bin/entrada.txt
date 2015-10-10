@@ -1,1 +1,18 @@
-Soniguales(a, b);
+suma=0;
+Para i desde 0 hasta 20{
+	Si i>=5 entonces{
+		Sumar(suma,i);
+		j = 2;
+	}
+}
+
+Mostrar();
+
+Funcion(a,b,v);
+var = 5;
+Si var < int entonces {
+	Para var desde 0 hasta int {
+	Hacer(algo);
+	Mostrar(var);
+	}
+}

@@ -1,21 +1,18 @@
-entero sum;
-entero i;
-logica log;
-
-logica Soniguales(entero a, real b){
-  logica iguales;
-  iguales=FALSO;
-  Si (a-b)==0 O (b-a)==0 entonces{
-    iguales=VERDADERO;
-  }
-  return iguales;
+suma=0;
+Para i desde 0 hasta 20{
+	Si i>=5 entonces{
+		Sumar(suma,i);
+		j = 2;
+	}
 }
 
-sum=0;
-Para i desde 0 hasta 15{
-  Si i>=5 entonces{
-    sum=sum+1;
-  }
-}
+Mostrar(suma);
 
-Mostrar(Soniguales(3,4));
+Funcion(a,b,v);
+var = 5;
+Si var < int entonces {
+	Para var desde 0 hasta int {
+	Hacer(algo);
+	Mostrar(var);
+	}
+}

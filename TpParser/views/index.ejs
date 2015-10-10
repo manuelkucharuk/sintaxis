@@ -11,12 +11,23 @@
 			resize: none;
 			font-family: monospace;
 		}
+
+		.aceptada{
+			font-size: 120%;
+			color: green;
+		}
+
+		.noAceptada{
+			font-size: 120%;
+			color: red;
+		}
+
 		</style>
 	</head>
 	<body>
 		<div class="container-fluid">
 			<div class="page-header">
-				<h1>Sintaxis y Semántica de los Lenguajes <small>Analizador Lexico y Sintáctico</small></h1>
+				<h1>Sintaxis y semántica de los lenguajes <small>Analizador lexico y sintáctico</small></h1>
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-xs-12">
@@ -45,6 +56,7 @@
 							<div class="highlight">
 <textarea class="form-control" rows="20" id="salida" name="salida"><%=salida%></textarea>
 							</div>
+						<%- resultadoParser %>	
 						</div>
 					</div>
 				</div>
