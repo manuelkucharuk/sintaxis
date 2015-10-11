@@ -2,8 +2,22 @@ var producciones =
 [
 	["P",
 		[
-			["LC"],
+			["DV"],
+			//["DV","DF","LC"],
+			//["DF","LC"],
+			//["DV","LC"],
+			//["DF","DV"],
+			
+			//["DF"],
+			//["LC"],
 			[]
+		]
+	],
+
+	["DV",
+		[
+			["Tipo","NombreVariable",";","DV"],
+			["Tipo","NombreVariable",";"]
 		]
 	],
 
@@ -75,13 +89,15 @@ var producciones =
 		]
 	]
 
-]
-
+];
 
 var esNoTerminal = function (simbolo){
 	var noTerminales = [
 	"P",
+	"DV",
+	"DF",
 	"LC",
+	//"Tipo",
 	"CAsignacion",
 	"CPara",
 	"CSiEntonces",
@@ -95,4 +111,4 @@ var esNoTerminal = function (simbolo){
 	return false;
 }
 
-module.exports = {producciones, esNoTerminal};
+module.exports  = {producciones, esNoTerminal};

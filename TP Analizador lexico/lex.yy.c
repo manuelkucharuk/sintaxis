@@ -1641,4 +1641,5 @@ int main(int argc, char *argv[]) {
  yyin = stdin;
  yylex();
  fclose(yyin);
+ return 0;
  }

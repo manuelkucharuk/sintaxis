@@ -3,12 +3,23 @@ var child_process = require('child_process');
 var fs = require('fs');
 
 var lexer = {};
-lexer.analizar = function (dir,exe,fileIn,fileOut,callback){	
-	var pathLexico = path.join(dir,exe)+"\"";
-	var pathEntrada = path.join(dir,fileIn)+"\"";
-	var pathSalida = path.join(dir,fileOut)+"\"";
 
-	child_process.exec(pathLexico+"<"+pathEntrada+">"+pathSalida,callback);	
+lexer.analizar = function (exe,cadena,callback){	
+	var lexer = child_process.spawn(exe);
+	
+	//\x1A es Ctrl+z, con eso envia EOF a stdin
+	lexer.stdin.write(cadena+"\x1A");
+
+	//lexer.on('close') porque la entrada puede ser vacia
+	// y entonces lexer.stdout.on('data') nunca se ejecuta.
+	var resultado = '';
+	lexer.stdout.on('data', function (res){
+  		resultado = res;
+	});
+
+    lexer.on('close', function(code) {
+        return callback(resultado);
+    });
 }
 
 module.exports=lexer;
