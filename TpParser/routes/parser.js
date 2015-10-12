@@ -1,9 +1,8 @@
 var parser = {};
 parser.analizar = function (cadena,callback){
 	var resultado;
-	var producciones = require('./producciones2').producciones;
-	console.log(producciones.length);
-	var esNoTerminal = require('./producciones2').esNoTerminal;
+	var producciones = require('./producciones').producciones;
+	var esNoTerminal = require('./producciones').esNoTerminal;
 
 	var w = separar(cadena);
 	var error = false;
@@ -40,12 +39,9 @@ parser.analizar = function (cadena,callback){
 	function PNi(parteIzquierda,posW){
 		var j;
 		var cuerpos = cuerposProduccion(parteIzquierda);
-		console.log("Estoy en PNi",parteIzquierda,w[posW]);
-		console.log("cuerpos",cuerpos);
 		for(j=0;j<cuerpos.length;j++){
 			error = false;
-			console.log(cuerpos[j]);
-			posW=procesar(cuerpos[j],posW);
+			posW = procesar(cuerpos[j],posW);
 			if(!error) return posW;	
 		} 
 	}
@@ -55,11 +51,7 @@ parser.analizar = function (cadena,callback){
 		var posWOriginal=posW;
 		for(i=0;i<cuerpo.length;i++){
 			simbolo = cuerpo[i];
-			console.log("simbolo",simbolo,"w[pos]",w[posW]);
-			if(esNoTerminal(simbolo)){
-				console.log(simbolo,w[posW]);
-				posW=PNi(simbolo,posW);	
-			} 
+			if(esNoTerminal(simbolo)) posW = PNi(simbolo,posW);	
 			else posW = match(simbolo,posW);
 
 			if(error) break;

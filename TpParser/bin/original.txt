@@ -1,18 +1,18 @@
-suma=0;
-Para i desde 0 hasta 20{
-	Si i>=5 entonces{
-		Sumar(suma,i);
-		j = 2;
-	}
+entero suma;
+entero n;
+real tiempo;
+
+entero Sumar(entero a, entero b){
+ suma = a+b;
+ return suma;
 }
 
-Mostrar(suma);
-
-Funcion(a,b,v);
-var = 5;
-Si var < int entonces {
-	Para var desde 0 hasta int {
-	Hacer(algo);
-	Mostrar(var);
-	}
-}
+tiempo=0;
+Para i desde 0 hasta 150{
+ Si (tiempo>=0 Y tiempo<20) O tiempo==2 entonces{
+  suma = suma+1;
+  tiempo = tiempo + 1;
+  n = (tiempo + i)*suma-n;
+  Mostrar(i,suma,tiempo,n);
+ }
+} 

@@ -13,13 +13,8 @@ lexer.analizar = function (exe,cadena,callback){
 	//lexer.on('close') porque la entrada puede ser vacia
 	// y entonces lexer.stdout.on('data') nunca se ejecuta.
 	var resultado = '';
-	lexer.stdout.on('data', function (res){
-  		resultado = res;
-	});
-
-    lexer.on('close', function(code) {
-        return callback(resultado);
-    });
+	lexer.stdout.on('data', function (res){resultado = res;});
+    lexer.on('close', function(code) {return callback(resultado);});
 }
 
 module.exports=lexer;
