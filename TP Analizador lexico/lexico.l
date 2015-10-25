@@ -47,8 +47,6 @@ delimID [-+{}()><=;,* \t\n]
 int yywrap(void){return 1;}
 
 int main(int argc, char *argv[]) {
- //yyin = fopen("programa.txt", "r");
- //freopen("salida.txt", "w", stdout);
  yyin = stdin;
  yylex();
  fclose(yyin);
