@@ -22,8 +22,8 @@ var producciones =
 
 	["DF",
 		[
-			["Tipo","NombreFuncion","LP","{","LC","return","NombreVariable",";","}","DF"],
-			["Tipo","NombreFuncion","LP","{","LC","return","NombreVariable",";","}"]
+			["Tipo","NombreFuncion","LP","{","LC",";","return","NombreVariable",";","}","DF"],
+			["Tipo","NombreFuncion","LP","{","LC",";","return","NombreVariable",";","}"]
 		]
 	],
 	

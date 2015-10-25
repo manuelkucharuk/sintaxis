@@ -4,6 +4,7 @@ real tiempo;
 
 entero Sumar(entero a, entero b){
  suma = a+b;
+ ;
  return suma;
 }
 
